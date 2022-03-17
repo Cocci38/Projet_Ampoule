@@ -3,8 +3,6 @@
 require_once 'connexion.php';
 
 
-
-
     $sql = $conn->prepare("INSERT INTO ampoule (
         created_at, etage, position, prix)
         VALUES(:created_at, :etage, :position, :prix)");

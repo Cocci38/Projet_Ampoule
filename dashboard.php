@@ -29,7 +29,7 @@
                 <td><?= $result[$key]['position'] ?></td>
                 <td><?= $result[$key]['prix'] ?> centimes</td>
                 <td>
-                    <form action="" method="get"><button value='' name="id"> Modifier</button></form>
+                    <form action="./crud/modifier.php" method="get"><button value='<?= $result[$key]['id'] ?>' name="id"> Modifier</button></form>
                     <form action="./crud/supprimer.php" method="get"><button value='<?= $result[$key]['id'] ?>' name="id"> Supprimer</button></form>
                 </td>
                 <?php }  ?>
