@@ -20,16 +20,19 @@
                 <th>Prix</th>
             </tr>
         </thead>
+        <?php  foreach ($result as $key => $value) { ?>
         <tbody>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                
+                <td><?= $result[$key]['created_at'] ?></td>
+                <td><?= $result[$key]['etage'] ?> étage</td>
+                <td><?= $result[$key]['position'] ?></td>
+                <td><?= $result[$key]['prix'] ?> centimes</td>
                 <td>
                     <form action="" method="get"><button value='' name="id"> Modifier</button></form>
                     <form action="" method="get"><button value='' name="id"> Supprimer</button></form>
                 </td>
+                <?php }  ?>
             </tr>
         </tbody>
         <tfoot>
