@@ -7,6 +7,9 @@
     <title>Tous les changements d'ampoules</title>
 </head>
 <body>
+    <?php 
+    require_once './crud/selection.php';
+    ?>
     <table>
         <caption>Historique des changements</caption>
         <thead>
