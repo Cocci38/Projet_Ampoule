@@ -14,5 +14,5 @@ require_once 'connexion.php';
     echo "C'est ok";
     print_r($sql);
 
-
+header('location: ../dashboard.php');
 ?>

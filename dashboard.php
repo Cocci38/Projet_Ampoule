@@ -8,12 +8,14 @@
 </head>
 <body>
     <?php 
-    require_once './crud/selection.php';
+    session_start();
+    require './crud/selection.php';
     ?>
     <table>
         <caption>Historique des changements</caption>
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Date</th>
                 <th>Etage</th>
                 <th>Position</th>
@@ -23,21 +25,22 @@
         <?php  foreach ($result as $key => $value) { ?>
         <tbody>
             <tr>
-                
+            <td><?= $result[$key]['id'] ?></td>
                 <td><?= $result[$key]['created_at'] ?></td>
                 <td><?= $result[$key]['etage'] ?> étage</td>
                 <td><?= $result[$key]['position'] ?></td>
                 <td><?= $result[$key]['prix'] ?> centimes</td>
                 <td>
-                    <form action="./crud/modifier.php" method="get"><button value='<?= $result[$key]['id'] ?>' name="id"> Modifier</button></form>
-                    <form action="./crud/supprimer.php" method="get"><button value='<?= $result[$key]['id'] ?>' name="id"> Supprimer</button></form>
+                <a href="modifier.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
+                <a href="./crud/supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
                 </td>
                 <?php }  ?>
             </tr>
         </tbody>
         <tfoot>
-            <a href="ajout_modif.php"></a><button type="button">Ajouter un changement</button>
+            <a href="ajout_modif.php"><button type="button">Ajouter un changement</button></a>
         </tfoot>
     </table>
+    <a href="ajout_modif.php"><button type="submit">Ajouter un changement</button></a>
 </body>
 </html>

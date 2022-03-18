@@ -7,14 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="./crud/ajouter.php" method="post">
-
+<form action="./crud/ajouter.php" method="post">
         <legend><h2>Ajouter un changement d'ampoule</h2></legend>
-
         <label for="created_at"></label>
         <input type="date" name="created_at" id="created_at">
-
-        <select name="etage" id="">
+        <select name="etage" id="etage">
             <option value="rdc">RDC</option>
             <option value="1er">1er étage</option>
             <option value="2ème">2ème étage</option>
@@ -28,14 +25,12 @@
             <option value="10ème">10ème étage</option>
             <option value="11ème">11ème étage</option>
         </select>
-
         <input type="radio" name="position" id="gauche" value="Côté gauche">
         <label for="gauche">Côté gauche</label>
         <input type="radio" name="position" id="droite" value="Côté droit">
         <label for="droite">Côté droit</label>
         <input type="radio" name="position" id="fond" value="Au fond">
         <label for="fond">Au fond</label>
-
         <label for="prix">Prix</label>
         <input type="number" name="prix" id="">
         
