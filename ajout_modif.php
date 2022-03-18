@@ -25,11 +25,11 @@
             <option value="10ème">10ème étage</option>
             <option value="11ème">11ème étage</option>
         </select>
-        <input type="radio" name="position" id="gauche" value="Côté gauche">
+        <input type="radio" name="position" id="gauche" value="gauche">
         <label for="gauche">Côté gauche</label>
-        <input type="radio" name="position" id="droite" value="Côté droit">
-        <label for="droite">Côté droit</label>
-        <input type="radio" name="position" id="fond" value="Au fond">
+        <input type="radio" name="position" id="droite" value="droit">
+        <label for="droit">Côté droit</label>
+        <input type="radio" name="position" id="fond" value="fond">
         <label for="fond">Au fond</label>
         <label for="prix">Prix</label>
         <input type="number" name="prix" id="">

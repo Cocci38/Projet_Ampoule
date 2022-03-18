@@ -39,25 +39,26 @@ foreach ($result1 as $key => $value) { ?>
             <legend><h2>Modifier un changement d'ampoule</h2></legend>
             <label for="created_at"></label>
             <input type="date" name="created_at" id="created_at" value="<?= $result1[$key]['created_at'] ?>">
+            
             <select name="etage" id="etage" >
-                <option value="<?= $result1[$key]['etage'] ?>">RDC</option>
-                <option value="<?= $result1[$key]['etage'] ?>">1er étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">2ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">3ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">4ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">5ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">6ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">7ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">8ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">9ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">10ème étage</option>
-                <option value="<?= $result1[$key]['etage'] ?>">11ème étage</option>
+                <option value="rdc"  <?= ($result1[$key]['etage'] =='rdc') ? 'selected=selected' : '' ?>>RDC</option>
+                <option value="1er"<?= ($result1[$key]['etage']=='1er') ? 'selected=selected' : ''?>>1er étage</option>
+                <option value="2ème" <?= ($result1[$key]['etage']=='2ème') ? 'selected=selected' : ''?>>2ème étage</option>
+                <option value="3ème" <?= ($result1[$key]['etage']=='3ème') ? 'selected=selected' : ''?>>3ème étage</option>
+                <option value="4ème" <?= ($result1[$key]['etage']=='4ème') ? 'selected=selected' : ''?>>4ème étage</option>
+                <option value="5ème" <?= ($result1[$key]['etage']=='5ème') ? 'selected=selected' : ''?>>5ème étage</option>
+                <option value="6ème" <?= ($result1[$key]['etage']=='6ème') ? 'selected=selected' : ''?>>6ème étage</option>
+                <option value="7ème" <?= ($result1[$key]['etage']=='7ème') ? 'selected=selected' : ''?>>7ème étage</option>
+                <option value="8ème" <?= ($result1[$key]['etage']=='8ème') ? 'selected=selected' : ''?>>8ème étage</option>
+                <option value="9ème" <?= ($result1[$key]['etage']=='9ème') ? 'selected=selected' : ''?>>9ème étage</option>
+                <option value="10ème" <?= ($result1[$key]['etage']=='10ème') ? 'selected=selected' : ''?>>10ème étage</option>
+                <option value="11ème" <?= ($result1[$key]['etage']=='11ème') ? 'selected=selected' : ''?>>11ème étage</option>
             </select>
-            <input type="radio" name="position" id="gauche" value="<?= $result1[$key]['position'] ?>">
+            <input type="radio" name="position" id="gauche" value="gauche" <?= ($result1[$key]['position']=="gauche") ? "checked" : '' ?>>
             <label for="gauche">Côté gauche</label>
-            <input type="radio" name="position" id="droite" value="<?= $result1[$key]['position'] ?>">
+            <input type="radio" name="position" id="droit" value="droit" <?= ($result1[$key]['position']=="droit") ? "checked" : ''?>>
             <label for="droite">Côté droit</label>
-            <input type="radio" name="position" id="fond" value="<?= $result1[$key]['position'] ?>">
+            <input type="radio" name="position" id="fond" value="fond" <?= ($result1[$key]['position']=="fond")  ? "checked" : '' ?>>
             <label for="fond">Au fond</label>
             <label for="prix">Prix</label>
             <input type="number" name="prix" id="prix" value="<?= $result1[$key]['prix'] ?>">
