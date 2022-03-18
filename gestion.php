@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php if ($_GET) {
+    echo 'Modifier une erreur';
+} else { 
+    echo "Ajouter un changement d'ampoule" ;}?></title>
 </head>
 <body>
-<form action="./crud/ajouter.php" method="post">
+    <?php
+
+if ($_GET) {
+    include './crud/modifier.php';
+} else { ?>
+    <form action="./crud/ajouter.php" method="post">
         <legend><h2>Ajouter un changement d'ampoule</h2></legend>
         <label for="created_at"></label>
         <input type="date" name="created_at" id="created_at">
@@ -27,15 +35,21 @@
         </select>
         <input type="radio" name="position" id="gauche" value="gauche">
         <label for="gauche">Côté gauche</label>
-        <input type="radio" name="position" id="droite" value="droit">
-        <label for="droit">Côté droit</label>
+        <input type="radio" name="position" id="droite" value="droite">
+        <label for="droite">Côté droit</label>
         <input type="radio" name="position" id="fond" value="fond">
         <label for="fond">Au fond</label>
         <label for="prix">Prix</label>
         <input type="number" name="prix" id="">
         
         <input type="submit" value="Valider">
-        <input type="submit" value="Retour">
+        <a href="dashboard.php"><button type="button">Retour</button></a>
     </form>
+
+    <?php
+}
+
+
+    ?>
 </body>
 </html>

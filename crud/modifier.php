@@ -10,17 +10,17 @@
 <body>
 <?php
 
-require './crud/connexion.php';
+require 'connexion.php';
 
 
-print_r($_GET);
+//print_r($_GET);
 $id = $_GET['id'];
 
     $select1 = $conn->prepare("SELECT * FROM ampoule WHERE id=$id");
     $select1->execute();
     $result1 = $select1->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($result1);
+//print_r($result1);
 
 if (@$_POST) {
     extract(@$_POST);
@@ -31,7 +31,7 @@ $modif->bindParam(':etage', $etage, PDO::PARAM_STR);
 $modif->bindParam(':position', $position, PDO::PARAM_STR);
 $modif->bindParam(':prix', $prix, PDO::PARAM_INT);
 $modif->execute();
-echo "c'est ok";
+//echo "c'est ok";
 }
 
 foreach ($result1 as $key => $value) { ?>
@@ -56,23 +56,21 @@ foreach ($result1 as $key => $value) { ?>
             </select>
             <input type="radio" name="position" id="gauche" value="gauche" <?= ($result1[$key]['position']=="gauche") ? "checked" : '' ?>>
             <label for="gauche">Côté gauche</label>
-            <input type="radio" name="position" id="droit" value="droit" <?= ($result1[$key]['position']=="droit") ? "checked" : ''?>>
+            <input type="radio" name="position" id="droit" value="droite" <?= ($result1[$key]['position']=="droite") ? "checked" : ''?>>
             <label for="droite">Côté droit</label>
             <input type="radio" name="position" id="fond" value="fond" <?= ($result1[$key]['position']=="fond")  ? "checked" : '' ?>>
             <label for="fond">Au fond</label>
             <label for="prix">Prix</label>
             <input type="number" name="prix" id="prix" value="<?= $result1[$key]['prix'] ?>">
     
-            <a href="../dashboard.php"><button type="submit">Valider</button></a>
-            <input type="submit" value="Retour">
+            <button type="submit">Valider</button>
+            <a href="dashboard.php"><button type="button">Retour</button></a>
         <?php } ?>
         </form>
 <?php
 
 
-
-
-//header('location: modif.php');
+//header('../dashboard.php');
 ?>
 </body>
 </html>

@@ -12,7 +12,7 @@ require_once 'connexion.php';
     $sql->bindParam('prix', $_POST['prix']);
     $sql->execute();
     echo "C'est ok";
-    print_r($sql);
+    //print_r($sql);
 
 header('location: ../dashboard.php');
 ?>
