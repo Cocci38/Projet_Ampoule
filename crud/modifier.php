@@ -29,7 +29,7 @@ $modif = $conn->prepare("UPDATE ampoule SET created_at=:created_at, etage=:etage
 $modif->bindParam(':created_at', $created_at, PDO::PARAM_STR);
 $modif->bindParam(':etage', $etage, PDO::PARAM_STR);
 $modif->bindParam(':position', $position, PDO::PARAM_STR);
-$modif->bindParam(':prix', $prix, PDO::PARAM_INT);
+$modif->bindParam(':prix', $prix, PDO::PARAM_STR);
 $modif->execute();
 //echo "c'est ok";
 }
@@ -61,7 +61,7 @@ foreach ($result1 as $key => $value) { ?>
             <input type="radio" name="position" id="fond" value="fond" <?= ($result1[$key]['position']=="fond")  ? "checked" : '' ?>>
             <label for="fond">Au fond</label>
             <label for="prix">Prix</label>
-            <input type="number" name="prix" id="prix" value="<?= $result1[$key]['prix'] ?>">
+            <input type="number" name="prix" id="" step="any" value="<?= $result1[$key]['prix'] ?>">
     
             <button type="submit">Valider</button>
             <a href="dashboard.php"><button type="button">Retour</button></a>
@@ -69,8 +69,9 @@ foreach ($result1 as $key => $value) { ?>
         </form>
 <?php
 
-
-//header('../dashboard.php');
+if ($_POST) {
+    header('location: dashboard.php');
+}
 ?>
 </body>
 </html>

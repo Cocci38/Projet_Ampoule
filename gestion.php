@@ -40,7 +40,7 @@ if ($_GET) {
         <input type="radio" name="position" id="fond" value="fond">
         <label for="fond">Au fond</label>
         <label for="prix">Prix</label>
-        <input type="number" name="prix" id="">
+        <input type="number" name="prix" id="" step="any">
         
         <input type="submit" value="Valider">
         <a href="dashboard.php"><button type="button">Retour</button></a>
