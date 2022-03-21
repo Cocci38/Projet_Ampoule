@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "sass": "^1.49.9"
+  },
+  "name": "projet_ampoule",
+  "description": "Dashboard de gestion des changements d'ampoule du gardien d'immeuble",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cocci38/Projet_Ampoule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cocci38/Projet_Ampoule/issues"
+  },
+  "homepage": "https://github.com/Cocci38/Projet_Ampoule#readme"
+}

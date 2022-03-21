@@ -1,0 +1,33 @@
+.alerte {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: solid rgb(149, 149, 223);
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+}
+
+.toast {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
