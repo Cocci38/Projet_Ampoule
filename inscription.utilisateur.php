@@ -31,5 +31,6 @@
         <p>J'ai déjà un compte ? <a href="login.utilisateur.php">Je me connecte.</a></p>
     </form>
 </div>
+<script src="./javascript/verif.js"></script>
 </body>
 </html>

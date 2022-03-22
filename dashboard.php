@@ -12,47 +12,52 @@
     <?php 
     require './crud/selection.php';
     ?>
-    <table>
-        <caption>Historique des changements</caption>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Etage</th>
-                <th>Position</th>
-                <th>Prix</th>
-            </tr>
-        </thead>
-        <?php  foreach ($result as $key => $value) { ?>
-        <tbody>
-            <tr>
-                <td><?= $result[$key]['id'] ?></td>
-                <td><?= $result[$key]['created_at'] ?></td>
-                <td><?= $result[$key]['etage'] ?> étage</td>
-                <td><?= $result[$key]['position'] ?></td>
-                <td><?= $result[$key]['prix'] ?> €</td>
-                <td>
-                
-                <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
+    <nav class="haut">
+        <a href="login.utilisateur.php"><button>Déconnexion</button></a>
+    </nav>
+    <div class="container">
+        <table>
+            <caption>Historique des changements</caption>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Etage</th>
+                    <th>Position</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <?php  foreach ($result as $key => $value) { ?>
+            <tbody>
+                <tr>
+                    <td><?= $result[$key]['id'] ?></td>
+                    <td><?= $result[$key]['created_at'] ?></td>
+                    <td><?= $result[$key]['etage'] ?> étage</td>
+                    <td><?= $result[$key]['position'] ?></td>
+                    <td><?= $result[$key]['prix'] ?> €</td>
+                    <td>
+                    
+                    <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
 
-                <a href="supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
+                    <a href="supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
 
 
 
-                <!--button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button-->
+                    <!--button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button-->
 
-                <div class="alerte" id="alerte">
-                    <span>Voulez-vous vraiment supprimer ?</span><br>
-                    <button type="submit" class="supprim" id="supprim-<?= $result[$key]['id'] ?>" onclick="replyId(this.id)">Supprimer</button></a>
-                    <button type="submit" id="annuler" class="annuler">Annuler</button></a>
-                </div>
-                </td>
-                <?php }  ?>
-            </tr>
-        </tbody>
-    </table>
-    <p class="toast" id="toast">L'entrée a bien été supprimer</p>
+                    <!-- <div class="alerte" id="alerte">
+                        <span>Voulez-vous vraiment supprimer ?</span><br>
+                        <button type="submit" class="supprim" id="supprim-<?= $result[$key]['id'] ?>" onclick="replyId(this.id)">Supprimer</button></a>
+                        <button type="submit" id="annuler" class="annuler">Annuler</button></a>
+                    </div> -->
+                    </td>
+                    <?php }  ?>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <p class="toast" id="toast">L'entrée a bien été supprimer</p> -->
     <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
     <nav>
         <ul class="pagination">

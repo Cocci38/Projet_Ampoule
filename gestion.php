@@ -8,6 +8,7 @@
     echo 'Modifier une erreur';
 } else { 
     echo "Ajouter un changement d'ampoule" ;}?></title>
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
     <?php
@@ -15,6 +16,7 @@
 if ($_GET) {
     include './crud/modifier.php';
 } else { ?>
+<div id="container">
     <form action="./crud/ajouter.php" method="post">
         <legend><h2>Ajouter un changement d'ampoule</h2></legend>
         <label for="created_at"></label>
@@ -48,8 +50,7 @@ if ($_GET) {
 
     <?php
 }
-
-
-    ?>
+?>
+</div>
 </body>
 </html>

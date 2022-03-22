@@ -35,6 +35,7 @@ $modif->execute();
 }
 
 foreach ($result1 as $key => $value) { ?>
+<div id="container">
     <form action="" method="post">
             <legend><h2>Modifier un changement d'ampoule</h2></legend>
             <label for="created_at"></label>
@@ -73,5 +74,6 @@ if ($_POST) {
     header('location: dashboard.php');
 }
 ?>
+</div>
 </body>
 </html>
