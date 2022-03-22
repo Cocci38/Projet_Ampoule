@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title>Récupération de mot de passe</title>
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
 <div id="container">
-    <form action="./users/inscription.php" method="post">
-        <legend><h2>Créer un compte</h2></legend>
-
-        <label for="username">   Votre nom complet </label>
-        <input type="text" name="username" id="username" required>
+    <form action="./users/recup.php" method="post">
+        <legend><h2>Changer de mot de passe</h2></legend>
 
         <label for="email"> Email </label>
         <input type="email" name="email" id="email" required>
 
-        <label for="portable">  Votre numéro de portable   </label>
-        <input type="tel" name="portable" id="portable" required>
-
-        <label for="password1"> Mot de passe  </label>
+        <label for="password1"> Nouveau mot de passe  </label>
         <input type="password" name="password" id="password1" required>
 
         <label for="password2"> Confirmez le mot de passe </label>

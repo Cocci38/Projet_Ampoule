@@ -20,7 +20,7 @@ $pages = ceil($nbampoule / $parPage);
 
 $premier = ($currentPage * $parPage) - $parPage;
 
-$select = $conn->prepare("SELECT * FROM ampoule ORDER BY created_at ASC LIMIT :premier, :parpage;");
+$select = $conn->prepare("SELECT * FROM ampoule ORDER BY created_at DESC LIMIT :premier, :parpage;");
 $select->bindValue(':premier', $premier, PDO::PARAM_INT);
 $select->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 $select->execute();

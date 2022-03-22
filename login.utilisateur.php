@@ -17,8 +17,10 @@
 
             <label for="password"><b>Mot de passe</b> </label>
             <input type="password" name="password" id="password" required>
+            <a href="recuperation.php">Mot de passe oublié ?</a>
 
             <input type="submit" value="Se connecter">
+            <p>Je n'ai pas de compte !<a href="inscription.utilisateur.php">Je m'inscris</a> </p>
         </form>
 </div>
 </body>
