@@ -2,13 +2,18 @@
 
 require_once '../crud/connexion.php';
 
-$pass = $_POST ['password'];
-$password = password_hash($pass, PASSWORD_DEFAULT);
-if(password_verify($pass, $password)){
-    echo 'valide';
-}else{
-    echo 'invalide';
-}
+$username = htmlspecialchars($_POST['username']);
+$email = htmlspecialchars($_POST['email']);
+$portable = htmlspecialchars($_POST['portable']);
+$password = htmlspecialchars($_POST['password']);
+$password_bis = htmlspecialchars($_POST['password2']);
+// if(password_verify($pass, $password)){
+//     echo 'valide';
+// }else{
+//     echo 'invalide';
+// }
+if ($password == $password_bis) {
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
 $sql = $conn->prepare("INSERT INTO users (
     username, email, portable, password)
@@ -16,10 +21,12 @@ $sql = $conn->prepare("INSERT INTO users (
     $sql->bindParam(':username', $_POST['username']);
     $sql->bindParam(':email', $_POST['email']);
     $sql->bindParam(':portable', $_POST['portable']);
-    $sql->bindParam(':password', $password);
+    $sql->bindParam(':password', $passwordHash);
     $sql->execute();
     echo "C'est ok";
 
-    header('Location: ./dashboard.php');
-
+    header('location: ../dashboard.php');
+}else{
+    echo 'Mot de passe différent';
+}
 ?>

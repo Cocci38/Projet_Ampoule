@@ -12,20 +12,20 @@
     <form action="./users/inscription.php" method="post">
         <legend><h2>Créer un compte</h2></legend>
 
-        <label for="username"><b> Votre nom complet</b></label>
+        <label for="username">   Votre nom complet </label>
         <input type="text" name="username" id="username" required>
 
-        <label for="email"><b>Email</b></label>
+        <label for="email"> Email </label>
         <input type="email" name="email" id="email" required>
 
-        <label for="portable"><b>Votre numéro de portable</b></label>
+        <label for="portable">  Votre numéro de portable   </label>
         <input type="tel" name="portable" id="portable" required>
 
-        <label for="password1"><b>Mot de passe</b></label>
+        <label for="password1"> Mot de passe  </label>
         <input type="password" name="password" id="password1" required>
 
-        <label for="password2"><b>Confirmez le mot de passe</b></label>
-        <input type="password" name="password" id="password2" required>
+        <label for="password2"> Confirmez le mot de passe </label>
+        <input type="password" name="password2" id="password2" required>
 
         <input type="submit" value="Enregistrer">
     </form>
