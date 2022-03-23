@@ -35,13 +35,23 @@
                     <td><?= $result[$key]['etage'] ?> étage</td>
                     <td><?= $result[$key]['position'] ?></td>
                     <td><?= $result[$key]['prix'] ?> €</td>
-                    <td>
+                    <td class="validation">
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-
-                    <a href="supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
-
+                        <a href="dashboard.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
+                    <?php 
+                    if (@$_GET['id'] == $result[$key]['id']) {?>
+                        <div class="alerte" id="alerte">
+                            <span>Voulez-vous vraiment supprimer ?<br></span>
+                            <div>
+                                <a href="supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
+                                <a href="dashboard.php"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
 
 
                     <!--button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button-->
