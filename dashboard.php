@@ -39,13 +39,13 @@
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-                        <a href="dashboard.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
+                        <a href="dashboard.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer" id="supprimer">Supprimer</button></a>
                     <?php 
                     if (@$_GET['id'] == $result[$key]['id']) {?>
                         <div class="alerte" id="alerte">
                             <span>Voulez-vous vraiment supprimer ?<br></span>
                             <div>
-                                <a href="supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Supprimer</button></a>
+                                <a href="./supprimer.php?id=<?= $result[$key]['id'] ?>" class="confirmation"><button type="submit" class="confirmation">Supprimer</button></a>
                                 <a href="dashboard.php"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
                             </div>
                         </div>
