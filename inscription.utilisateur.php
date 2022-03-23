@@ -26,7 +26,8 @@
 
         <label for="password2"> Confirmez le mot de passe </label>
         <input type="password" name="password2" id="password2" required>
-
+        <div id="error"></div>
+        
         <input type="submit" value="Enregistrer">
         <p>J'ai déjà un compte ? <a href="login.utilisateur.php">Je me connecte.</a></p>
     </form>

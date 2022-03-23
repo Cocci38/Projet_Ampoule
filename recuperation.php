@@ -19,11 +19,13 @@
         <input type="password" name="password" id="password1" required>
 
         <label for="password2"> Confirmez le mot de passe </label>
-        <input type="password" name="password2" id="password2" required>
+        <input type="password" name="password2" id="password2" onblur="passVerif()" required>
+        <div id="error"></div>
 
-        <input type="submit" value="Enregistrer">
+        <input type="submit" id="envoie" value="Enregistrer">
         <p>J'ai déjà un compte ? <a href="login.utilisateur.php">Je me connecte.</a></p>
     </form>
 </div>
+<script src="./javascript/verif.js"></script>
 </body>
 </html>

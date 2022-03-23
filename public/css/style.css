@@ -157,4 +157,8 @@ select {
   visibility: visible;
 }
 
+#error {
+  color: red;
+}
+
 /*# sourceMappingURL=style.css.map */

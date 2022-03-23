@@ -14,9 +14,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $modif->bindParam(':password', $passwordHash, PDO::PARAM_STR);
         $modif->bindParam(':email', $email, PDO::PARAM_STR);
         $modif->execute();
-        echo "c'est ok";
-    }else {
-        echo 'erreur';
+        header('location: ../login.utilisateur.php');
     }
+    // else {
+    //     header('location: ../recuperation.php');
+    // }
 }
 ?>
