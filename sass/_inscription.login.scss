@@ -1,5 +1,9 @@
 @import '_variable.scss';
 
+:root{
+    accent-color: $middle;
+}
+
 body{
     background: $fond;
     color: $dark;
@@ -51,6 +55,12 @@ input[type=submit]:hover {
     color: $middle;
     border: 1px solid $middle;
 }
+input[type=radio]{
+    padding: 100px;
+    input[type=radio]:checked {
+        border: 20px solid red;
+    }
+}
 a {
     color: $middle;
 }
@@ -62,9 +72,4 @@ select {
     border: 1px solid $light;
     box-sizing: border-box;
 }
-// input[type=radio]{
-//     background-color: black;
-// }
-// input[type=radio]::before{
-//     background-color: red;
-// }
+

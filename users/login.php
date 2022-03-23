@@ -27,15 +27,15 @@ if(isset($_POST['email']) && isset($_POST['password']))
                         echo 'valide';
                         $_SESSION['users'] = $resultat['username'];
                         header('location: ../dashboard.php');
-                }else{
+                    }else{
                     header('location: ../login.utilisateur.php?login_err=password');
                     echo 'invalide';
-                        }
+                    }
                 }
                 }else {
                     header('location: ../login.utilisateur.php?login_err=email');
                 }
-                }else {
+            }else {
                     header('location: ../login.utilisateur.php?login_err=already');
                 }
             }else{

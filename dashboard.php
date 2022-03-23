@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,14 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tous les changements d'ampoules</title>
     <link rel="stylesheet" href="./public/css/style.css">
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
 </head>
 <body>
     <?php 
     require './crud/selection.php';
     ?>
     <nav class="haut">
-        <a href="login.utilisateur.php"><button>Déconnexion</button></a>
+        <p>Gardien <?= $_SESSION['users'] ?></p>
+        <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
+        <a href="login.utilisateur.php"><button class="deconnect">Déconnexion</button></a>
     </nav>
     <div class="container">
         <table>
@@ -39,13 +43,14 @@
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-                        <a href="dashboard.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer" id="supprimer">Supprimer</button></a>
+                        <a href="?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
                     <?php 
                     if (@$_GET['id'] == $result[$key]['id']) {?>
                         <div class="alerte" id="alerte">
                             <span>Voulez-vous vraiment supprimer ?<br></span>
                             <div>
-                                <a href="./supprimer.php?id=<?= $result[$key]['id'] ?>" class="confirmation"><button type="submit" class="confirmation">Supprimer</button></a>
+                            <a href="./crud/supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
+                                
                                 <a href="dashboard.php"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
                             </div>
                         </div>
@@ -67,8 +72,8 @@
             </tbody>
         </table>
     </div>
-    <!-- <p class="toast" id="toast">L'entrée a bien été supprimer</p> -->
-    <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
+    <p class="toast" id="toast">L'entrée a bien été supprimer</p>
+    
     <nav>
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
@@ -101,8 +106,28 @@
             <?php endif ?>
         </ul>
     </nav>
-    <script src="main.js"></script>
-    <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript">
+        Toastify ( { 
+  text : "This is a toast" , 
+  duration : 3000 , 
+  destination : "https://github.com/apvarun/toastify-js" , 
+  newWindow : true , 
+  close : true , 
+  gravity : "top" ,  // `top` ou `bottom` 
+  position : "left" ,  // `left`, `center` ou `right` 
+  stopOnFocus : true ,  // Empêche le rejet du toast au survol 
+  style : { 
+    background :"linear-gradient(to right, #00b09b, #96c93d)" , 
+  } , 
+  onClick : function ( ) { }  // Rappel après clic 
+} ) . showToast ( ) ;
+$(document).ready(function(){
+    $('#confirmation').click(function(){
+        $('#toast').toast()})
+})
+    </script>
+    <!-- <script src="main.js"></script> -->
+    
 </body>
 </html>

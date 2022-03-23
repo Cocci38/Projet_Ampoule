@@ -5,15 +5,23 @@
 // console.log(attributID);
 
 const alerte = document.getElementById('alerte');
-const supprimer = document.getElementById('supprimer');
+const supprimer = document.getElementById('supprim');
 const annuler = document.querySelector('.annuler');
 //const supprimer = document.querySelector('.supprimer');
-const confirmation = document.querySelector('.confirmation');
+// const confirmation = document.getElementById('confirmation-');
+// const attributID = confirmation.getAttribut("id");
+// console.log(attributID);
 
-supprimer.addEventListener('click', () => {
-    //document.body.style.filter = "blur(3px)";
-    console.log('oki');
-})
+function getId(clicked_id) {
+    const confirmation = document.getElementById('confirmation-');
+    const attributID = confirmation.getAttribut("id");
+    console.log(attributID);
+    console.log(clicked_id);
+}
+// supprimer.addEventListener('click', () => {
+//     //document.body.style.filter = "blur(3px)";
+//     console.log('oki');
+// })
 
 
 //const toast = document.getElementById('toast');
@@ -26,10 +34,6 @@ supprimer.addEventListener('click', () => {
 //     alerte.classList.remove('show');
 // });
 
-// function getId(clicked_id) {
-//     console.log(clicked_id);
-//     alerte.classList.add('show');
-// }
 // function replyId(clicked_id) {
 //     console.log(clicked_id);
 //     toast.classList.add('show');
