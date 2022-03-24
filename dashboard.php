@@ -43,7 +43,7 @@
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-                        <a href="?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
+                        <a href="dashboard.php?page=<?= $page  ?> ?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
                     <?php 
                     if (@$_GET['id'] == $result[$key]['id']) {?>
                         <div class="alerte" id="alerte">
@@ -78,7 +78,7 @@
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
             <?php if ($currentPage  >1) : ?> 
-            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
                 <a href="./dashboard.php?page=<?= $currentPage - 1 ?>" class="page-link">Précédent</a>
             </li>
             <?php else : ?>
@@ -95,7 +95,7 @@
             <?php endfor ?>
 
             <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-            <?php if ($currentPage <= 1) : ?>
+            <?php if ($currentPage >= 1) : ?>
             <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
                 <a href="./dashboard.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
             </li>
