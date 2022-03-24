@@ -43,19 +43,24 @@
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-                        <a href="dashboard.php?page=<?= $page  ?> ?id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
+                        <a href="dashboard.php?page=<?= $currentPage ?>&id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
                     <?php 
-                    if (@$_GET['id'] == $result[$key]['id']) {?>
+
+//error_log(print_r($_GET, 1));
+/*
+                    if (@$_GET ) { // === $result[$key]['id'] && $currentPage == 'active'?>
                         <div class="alerte" id="alerte">
                             <span>Voulez-vous vraiment supprimer ?<br></span>
                             <div>
-                            <a href="./crud/supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
+                                <a href="./crud/supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
                                 
                                 <a href="dashboard.php"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
                             </div>
                         </div>
                     <?php
                     }
+                  //  var_dump($_GET['id']);
+                  */
                     ?>
 
 
@@ -67,13 +72,22 @@
                         <button type="submit" id="annuler" class="annuler">Annuler</button></a>
                     </div> -->
                     </td>
-                    <?php }  ?>
+                    <?php }  
+                     if (@$_GET['id'] > 0 ) { // === $result[$key]['id'] && $currentPage == 'active'?>
+                        <div class="alerte" id="alerte">
+                            <span>Voulez-vous vraiment supprimer ?<br></span>
+                            <div>
+                                <a href="./crud/supprimer.php?id=<?= $_GET['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
+                                
+                                <a href="dashboard.php?page=<?= $currentPage ?>"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
+                            </div>
+                        </div>
+                        <?php } ?>
                 </tr>
             </tbody>
         </table>
     </div>
     <p class="toast" id="toast">L'entrée a bien été supprimer</p>
-    
     <nav>
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
@@ -87,7 +101,7 @@
             </li>
             <?php endif ?>
 
-            <?php for($page = 1; $page <= $pages; $page++): ?>
+            <?php for($page = 1;  $page <= $pages;  $page++): ?>
             <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                 <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
                     <a href="./dashboard.php?page=<?= $page ?>" class="page-link"><?= $page ?></a>
@@ -95,7 +109,10 @@
             <?php endfor ?>
 
             <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-            <?php if ($currentPage >= 1) : ?>
+            <?php 
+            error_log("pages = ".$pages);
+            
+            if ($currentPage <= $pages -1) : ?>
             <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
                 <a href="./dashboard.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
             </li>
