@@ -39,3 +39,14 @@ Réaliser la page qui liste l\'historique des changements d\'ampoule
 Adapter le formulaire d\'ajout pour qu\'il puisse aussi modifier un changement d\'ampoule
 Gérer la suppression d\'un changement d\'ampoule
 Réaliser le responsive
+
+Projet Ampoule – suite
+
+1-Créer une table ‘user’ contenant au moins les champs :
+‘id’, ‘login’, ‘password’, ‘email’, ‘tel portable’
+Le mot de passe doit être crypté en base (utiliser les fonctions natives PHP password_hash et password_verify)
+2-Ajouter un lien ‘Mot de passe oublié ?’ et la page associée (cf. exemple plus bas). 
+3-Ajouter un lien ‘Je n’ai pas de compte’ et la page associée (cf. exemple plus bas).
+
+Page de création de compte :
+En javascript, vérifier que les valeurs saisies dans les champs ‘Mot de passe’ et ‘Confirmez le mot de passe’ sont identiques.

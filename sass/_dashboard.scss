@@ -4,29 +4,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
     background-color: $dark;
-    width: 100%;
     height: 20vh;
+    text-align: center;
+    width: 100%;
+    // .espace {
+    //     width: 32%;
+    // }
     .deconnect {
         background-color: $fond;
         color: $middle;
         padding: 14px 20px;
         margin: 8px 0;
+        margin-right: 5px;
         border: none;
         cursor: pointer;
         width: auto;
     }
     .gardien {
         color: $fond;
-        
+    }
+    img {
+        width: 40px;
+        height: auto;
     }
 }
 .container {
-    width: 80%;
+    //width: 70%;
     height: auto;
     margin: 0 auto;
     margin-top: 5%;
+    @media screen and (min-width: 800px) {
+        width: 70%;
+    }
 }
 table {
     border-collapse: collapse;

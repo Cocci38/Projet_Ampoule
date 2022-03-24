@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tous les changements d'ampoules</title>
     <link rel="stylesheet" href="./public/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" /> -->
 </head>
 <body>
 
@@ -15,18 +15,20 @@
     require './crud/selection.php';
     ?>
     <nav class="haut">
-        <p class="gardien">Gardien <?= $_SESSION['users'] ?></p>
+        
+        <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
+        <p class="gardien"><?= $_SESSION['users'] ?> </p>
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
         <a href="login.utilisateur.php"><button class="deconnect">Déconnexion</button></a>
+
     </nav>
     <div class="container">
         <table>
             <caption>Historique des changements</caption>
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Date</th>
-                    <th>Etage</th>
+                    <th>Etages</th>
                     <th>Position</th>
                     <th>Prix</th>
                 </tr>
@@ -34,10 +36,18 @@
             <?php  foreach ($result as $key => $value) { ?>
             <tbody>
                 <tr>
-                    <td><?= $result[$key]['id'] ?></td>
                     <td><?= $result[$key]['created_at'] ?></td>
-                    <td><?= $result[$key]['etage'] ?> étage</td>
-                    <td><?= $result[$key]['position'] ?></td>
+                    <?php if ($result[$key]['etage'] == 'rdc'){  ?>
+                    <td><?= $result[$key]['etage'] ?></td>
+                    <?php }else {?>
+                        <td><?= $result[$key]['etage'] ?> étage</td>
+                    <?php } ?>
+                    <?php if ($result[$key]['position'] == 'fond'){  ?>
+                        <td>Au <?= $result[$key]['position'] ?></td>
+                    <?php }else {?>
+                        <td>A <?= $result[$key]['position'] ?></td>
+                    <?php } ?>
+                    
                     <td><?= $result[$key]['prix'] ?> €</td>
                     <td class="validation">
                     
