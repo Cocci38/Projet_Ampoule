@@ -13,9 +13,6 @@ const annuler = document.querySelector('.annuler');
 // console.log(attributID);
 
 function getId(clicked_id) {
-    const confirmation = document.getElementById('confirmation-');
-    const attributID = confirmation.getAttribut("id");
-    console.log(attributID);
     console.log(clicked_id);
 }
 // supprimer.addEventListener('click', () => {

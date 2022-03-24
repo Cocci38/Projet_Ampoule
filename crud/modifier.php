@@ -66,7 +66,7 @@ foreach ($result1 as $key => $value) { ?>
             
     
             <input type="submit" value="Valider">
-            <a href="dashboard.php"><button type="button">Retour</button></a>
+            <a href="dashboard.php"><input type="button" value="Retour"></a>
         <?php } ?>
         </form>
 <?php

@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tous les changements d'ampoules</title>
     <link rel="stylesheet" href="./public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 </head>
 <body>
+
     <?php 
     require './crud/selection.php';
     ?>
     <nav class="haut">
-        <p>Gardien <?= $_SESSION['users'] ?></p>
+        <p class="gardien">Gardien <?= $_SESSION['users'] ?></p>
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
         <a href="login.utilisateur.php"><button class="deconnect">Déconnexion</button></a>
     </nav>
@@ -43,28 +43,9 @@
                     
                     <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
 
-                        <a href="dashboard.php?page=<?= $currentPage ?>&id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprimer">Supprimer</button></a>
-                    <?php 
+                        <a href="dashboard.php?page=<?= $currentPage ?>&id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprim">Supprimer</button></a>
 
-//error_log(print_r($_GET, 1));
-/*
-                    if (@$_GET ) { // === $result[$key]['id'] && $currentPage == 'active'?>
-                        <div class="alerte" id="alerte">
-                            <span>Voulez-vous vraiment supprimer ?<br></span>
-                            <div>
-                                <a href="./crud/supprimer.php?id=<?= $result[$key]['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
-                                
-                                <a href="dashboard.php"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                  //  var_dump($_GET['id']);
-                  */
-                    ?>
-
-
-                    <!--button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button-->
+                    <!-- <button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button> -->
 
                     <!-- <div class="alerte" id="alerte">
                         <span>Voulez-vous vraiment supprimer ?</span><br>
@@ -72,22 +53,24 @@
                         <button type="submit" id="annuler" class="annuler">Annuler</button></a>
                     </div> -->
                     </td>
-                    <?php }  
-                     if (@$_GET['id'] > 0 ) { // === $result[$key]['id'] && $currentPage == 'active'?>
+                    </tr>
+            </tbody>
+                    <?php 
+                    }  
+                        if (@$_GET['id'] > 0 ) {?>
                         <div class="alerte" id="alerte">
                             <span>Voulez-vous vraiment supprimer ?<br></span>
                             <div>
-                                <a href="./crud/supprimer.php?id=<?= $_GET['id'] ?>"><button type="submit" class="confirmation" id="confirmation">Supprimer</button></a>
-                                
+                                <a href="./crud/supprimer.php?id=<?= $_GET['id'] ?>"><button type="submit" class="confirmation" id="confirmation" >Supprimer</button>
                                 <a href="dashboard.php?page=<?= $currentPage ?>"><button type="submit"id="annuler" class="annuler">Annuler</button></a>
                             </div>
                         </div>
                         <?php } ?>
-                </tr>
-            </tbody>
+                
         </table>
     </div>
-    <p class="toast" id="toast">L'entrée a bien été supprimer</p>
+            <!--p class="toast" id="toast">L'entrée a bien été supprimée</p-->
+    
     <nav>
         <ul class="pagination">
             <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
@@ -109,9 +92,7 @@
             <?php endfor ?>
 
             <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-            <?php 
-            error_log("pages = ".$pages);
-            
+            <?php
             if ($currentPage <= $pages -1) : ?>
             <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
                 <a href="./dashboard.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
@@ -123,28 +104,34 @@
             <?php endif ?>
         </ul>
     </nav>
+    <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script type="text/javascript">
-        Toastify ( { 
-  text : "This is a toast" , 
-  duration : 3000 , 
-  destination : "https://github.com/apvarun/toastify-js" , 
-  newWindow : true , 
-  close : true , 
-  gravity : "top" ,  // `top` ou `bottom` 
-  position : "left" ,  // `left`, `center` ou `right` 
-  stopOnFocus : true ,  // Empêche le rejet du toast au survol 
-  style : { 
-    background :"linear-gradient(to right, #00b09b, #96c93d)" , 
-  } , 
-  onClick : function ( ) { }  // Rappel après clic 
-} ) . showToast ( ) ;
-$(document).ready(function(){
-    $('#confirmation').click(function(){
-        $('#toast').toast()})
-})
-    </script>
-    <!-- <script src="main.js"></script> -->
+    
+    <?php  if(isset($_SESSION['supprimer']) && $_SESSION['supprimer'] == true) { 
+        ?>
+        <script type="text/javascript">
+                $(function() {
+                    toastr.success('Suppression réussie', 'Test', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-center",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            });
+	});
+</script>
+    <?php } $_SESSION['supprimer'] == FALSE?> -->
+    <!-- <script src="./javascript/toast.js"></script> -->
     
 </body>
 </html>

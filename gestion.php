@@ -46,7 +46,7 @@ if ($_GET) {
         <label for="fond">Au fond</label><br>
         
         <input type="submit" value="Valider">
-        <a href="dashboard.php"><button type="button">Retour</button></a>
+        <a href="dashboard.php"><input type="button" value="Retour"></a>
     </form>
 
     <?php

@@ -2,6 +2,7 @@
 
 :root{
     accent-color: $middle;
+    font-family: $font;
 }
 
 body{
@@ -61,7 +62,21 @@ input[type=radio]{
         border: 20px solid red;
     }
 }
-a {
+input[type=button] {
+    background-color: $fond;
+    color: $middle;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid $middle;
+    cursor: pointer;
+    width: 100%;
+}
+// input[type=button]:hover {
+//     background-color: $middle;
+//     color: $fond;
+//     border: 1px solid $middle;
+// }
+a { 
     color: $middle;
 }
 select {

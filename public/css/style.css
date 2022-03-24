@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&family=Dancing+Script:wght@500;600&family=Merriweather+Sans:wght@300;400&family=Montserrat:wght@100;400;500&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&family=Dancing+Script:wght@500;600&family=Merriweather+Sans:wght@300;400&family=Montserrat:wght@100;400;500&family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran&family=Dancing+Script:wght@500;600&family=Merriweather+Sans:wght@300;400&family=Montserrat:wght@100;400;500&family=Nunito&display=swap");
 .haut {
   display: flex;
   justify-content: center;
@@ -16,7 +19,7 @@
   cursor: pointer;
   width: auto;
 }
-.haut p {
+.haut .gardien {
   color: #F7F1F0;
 }
 
@@ -85,6 +88,7 @@ a {
 
 :root {
   accent-color: #A15C38;
+  font-family: "Catamaran", sans-serif;
 }
 
 body {
@@ -150,6 +154,16 @@ input[type=radio] input[type=radio]:checked {
   border: 20px solid red;
 }
 
+input[type=button] {
+  background-color: #F7F1F0;
+  color: #A15C38;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #A15C38;
+  cursor: pointer;
+  width: 100%;
+}
+
 a {
   color: #A15C38;
 }
@@ -167,7 +181,8 @@ select {
   display: grid;
   grid-template-columns: 2fr;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  text-align: center;
   border: solid #A15C38;
   border-radius: 10px;
   width: 300px;
@@ -182,6 +197,8 @@ select {
 
 .toast {
   visibility: hidden;
+  background-color: green;
+  color: aliceblue;
 }
 
 .show {
