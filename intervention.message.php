@@ -1,3 +1,7 @@
+<?php session_start();
+if(!$_SESSION['users']){
+    header('Location: login.utilisateur.php');
+} ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,12 +30,14 @@ $afficher='oui';
 ?>
 <nav class="haut">
         <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
-        <!-- <p class="gardien"><?= $_SESSION['users'] ?> </p> -->
-        <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
+        <p class="gardien"><?= $_SESSION['users'] ?> </p>
+        <a href="dashboard.php"><button type="submit">Retour sur le dashboard</button></a>
         <a href="./users/deconnexion.php"><button class="deconnect">Déconnexion</button></a>
     </nav>
     <div class="container" id="container">
+        
         <form method="GET">
+            <legend><h2>Chercher un message</h2></legend>
             <label for="message">Entrez un mot clef</label>
             <input type="search" name="recherche">
             <input type="submit" name="envoyer" value="Rechercher">

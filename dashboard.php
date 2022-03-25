@@ -25,6 +25,7 @@ if(!$_SESSION['users']){
         <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
         <p class="gardien"><?= $_SESSION['users'] ?> </p>
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
+        <a href="intervention.message.php"><button type="submit">Voir les messages</button></a>
         <a href="./users/deconnexion.php"><button class="deconnect">Déconnexion</button></a>
 
     </nav>
