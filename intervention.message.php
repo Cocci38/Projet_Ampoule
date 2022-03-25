@@ -8,14 +8,35 @@
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
+<?php 
+require_once './crud/connexion.php';
+//require_once './message/message.php';
+@$recherche=$_GET["recherche"];
+@$envoyer=$_GET["envoyer"];
+
+if(isset($envoyer)&& !empty(trim($recherche))){
+$sql4=$conn->prepare("SELECT created_at, message, date, username FROM messages
+JOIN ampoule ON messages.id = ampoule.message_id
+JOIN users ON messages.user_id = users.id
+WHERE MATCH (message) AGAINST ( ' $recherche ' )");
+$sql4->execute();
+$resultat4=$sql4->fetchAll(PDO::FETCH_ASSOC);
+$afficher='oui';
+}
+?>
 <nav class="haut">
-        
         <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
-        <p class="gardien"><?= $_SESSION['users'] ?> </p>
+        <!-- <p class="gardien"><?= $_SESSION['users'] ?> </p> -->
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
         <a href="./users/deconnexion.php"><button class="deconnect">Déconnexion</button></a>
-
     </nav>
+    <div class="container" id="container">
+        <form method="GET">
+            <label for="message">Entrez un mot clef</label>
+            <input type="search" name="recherche">
+            <input type="submit" name="envoyer" value="Rechercher">
+        </form>
+    </div>
     <div class="container">
         <table>
             <caption>Message d'intervention</caption>
@@ -27,28 +48,20 @@
                     <th>Date de l'intervention</th>
                 </tr>
             </thead>
-            <?php  foreach ($result as $key => $value) { ?>
+            <?php if (@$afficher=='oui'){?>
+            <?php  for($i=0;$i<count($resultat4);$i++) { ?>
             <tbody>
                 <tr>
-                    <td><?= $result[$key]['created_at'] ?></td>
-                    <?php if ($result[$key]['etage'] == 'rdc'){  ?>
-                    <td><?= $result[$key]['etage'] ?></td>
-                    <?php }else {?>
-                        <td><?= $result[$key]['etage'] ?> étage</td>
-                    <?php } ?>
-                    <?php if ($result[$key]['position'] == 'fond'){  ?>
-                        <td>Au <?= $result[$key]['position'] ?></td>
-                    <?php }else {?>
-                        <td>A <?= $result[$key]['position'] ?></td>
-                    <?php } ?>
-                    
-                    <td><?= $result[$key]['prix'] ?> €</td>
+                    <td><?= $resultat4[$i]['date'] ?></td>
+                    <td><?= $resultat4[$i]['message'] ?></td>
+                        <td><?= $resultat4[$i]['username'] ?></td>
+                    <td><?= $resultat4[$i]['created_at'] ?></td>
                     </tr>
             </tbody>
                     <?php 
                     }  ?>
-
-                
+                    <?php 
+                    }  ?>
         </table>
     </div>
 </body>
