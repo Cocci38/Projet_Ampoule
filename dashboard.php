@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if(!$_SESSION['users']){
+    header('Location: login.utilisateur.php');
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,7 +25,7 @@
         <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
         <p class="gardien"><?= $_SESSION['users'] ?> </p>
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
-        <a href="login.utilisateur.php"><button class="deconnect">Déconnexion</button></a>
+        <a href="./users/deconnexion.php"><button class="deconnect">Déconnexion</button></a>
 
     </nav>
     <div class="container">

@@ -1,16 +1,25 @@
 const confirmation = document.querySelector('.confirmation');
 const toast = document.querySelector('.toast');
-
-confirmation.addEventListener('click', () => {
-    toast.classList.add('show');
-})
+const alerte = document.getElementById('alerte');
 
 
 
 
-// function getId(clicked_id) {
-//     console.log(clicked_id);
-// }
+
+function getId(clicked_id) {
+    console.log(clicked_id);
+    alerte.classList.add('show');
+    console.log('ok');
+    confirmation.addEventListener('click', () => {
+        console.log('oki');
+        alerte.classList.remove('show');
+    })
+    
+}
+// confirmation.addEventListener('click', () => {
+//     console.log('oki');
+//     alerte.classList.remove('show');
+// })
 // console.log('oki');
 // toast.classList.add('show');
 // function Timer2() {
