@@ -23,7 +23,7 @@ if(!$_SESSION['users']){
     <nav class="haut">
         
         <img src="./public/media/Utilisateur.png" alt="image-utilisateur" srcset="">
-        <p class="gardien"><?= $_SESSION['users'] ?> </p>
+        <p class="gardien"><?= $_SESSION['users'] ?></p>
         <a href="gestion.php"><button type="submit">Ajouter un changement</button></a>
         <a href="intervention.message.php"><button type="submit">Voir les messages</button></a>
         <a href="./users/deconnexion.php"><button class="deconnect">Déconnexion</button></a>
@@ -38,6 +38,7 @@ if(!$_SESSION['users']){
                     <th>Etages</th>
                     <th>Position</th>
                     <th>Prix</th>
+                    <th>Id</th>
                 </tr>
             </thead>
             <?php  foreach ($result as $key => $value) { ?>
@@ -56,10 +57,11 @@ if(!$_SESSION['users']){
                     <?php } ?>
                     
                     <td><?= $result[$key]['prix'] ?> €</td>
+                    <td><?= $result[$key]['id'] ?></td>
                     <td class="validation">
-                    
-                    <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
-
+                        
+                        <a href="message.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Message</button></a>
+                        <a href="gestion.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Modifier</button></a>
                         <a href="dashboard.php?page=<?= $currentPage ?>&id=<?= $result[$key]['id'] ?>"><button type="submit" class="supprim">Supprimer</button></a>
 
                     <!-- <button type="submit" id="btn-<?= $result[$key]['id'] ?>" class="btn" onclick="getId(this.id)">Supprimer</button> -->

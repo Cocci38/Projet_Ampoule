@@ -111,7 +111,7 @@ body {
 #container {
   width: 400px;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 /* Bordered form */
@@ -180,6 +180,15 @@ a {
 }
 
 select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #C3A6A0;
+  box-sizing: border-box;
+}
+
+textarea {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
