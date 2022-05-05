@@ -50,3 +50,11 @@ Le mot de passe doit être crypté en base (utiliser les fonctions natives PHP p
 
 Page de création de compte :
 En javascript, vérifier que les valeurs saisies dans les champs ‘Mot de passe’ et ‘Confirmez le mot de passe’ sont identiques.
+4-Créer une table ‘message’ contenant au moins les champs :
+‘id’, ‘message’, ‘author_id’, date
+
+5-Modifier la table ‘historique’ et ajouter deux clés étrangères ‘user_id’ et ‘message_id’.
+Lors de la validation du changement d’ampoule, ‘user_id’ reçoit l’id de l’utilisateur courant, ‘message_id’ reçoit l’identifiant du message éventuellement saisi par l’utilisateur.
+
+6-Créer un champ de saisie ‘Recherche’. 
+L’utilisateur saisi un mot clé et on affiche tous les messages contenant ce mot clé. La recherche se fera en ‘full text’ en utilisant la directive SQL ‘MATCH(…) AGAINST(…)’
