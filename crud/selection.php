@@ -25,6 +25,7 @@ $premier = ($currentPage * $parPage) - $parPage;
 // Faire la requête sql en utilisant l'instruction LIMIT
 $select = $conn->prepare("SELECT * FROM ampoule 
 LEFT JOIN messages ON ampoule.message_id=messages.id_message 
+LEFT JOIN users ON ampoule.user_id=users.id_user
 -- WHERE ampoule.id=:id 
 ORDER BY created_at DESC LIMIT :premier, :parpage;");
 

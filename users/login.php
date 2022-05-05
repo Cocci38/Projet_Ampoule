@@ -26,7 +26,7 @@ if(isset($_POST['email']) && isset($_POST['password']))
                     if(password_verify($password, $passwordHash)){             
                         echo 'valide';
                         $_SESSION['users'] = $resultat['username'];
-                        $_SESSION['user_id'] = $resultat['id'];
+                        $_SESSION['user_id'] = $resultat['id_user'];
                         header('location: ../dashboard.php');
                     }else{
                     header('location: ../login.utilisateur.php?login_err=password');

@@ -34,6 +34,7 @@ if(!$_SESSION['users']){
             <caption>Historique des changements</caption>
             <thead>
                 <tr>
+                    <th>Gardien</th>
                     <th>Date</th>
                     <th>Etages</th>
                     <th>Position</th>
@@ -44,6 +45,7 @@ if(!$_SESSION['users']){
             <?php  foreach ($result as $key => $value) { ?>
             <tbody>
                 <tr>
+                    <td><?= $result[$key]['username'] ?></td>
                     <td><?= $result[$key]['created_at'] ?></td>
                     <?php if ($result[$key]['etage'] == 'rdc'){  ?>
                     <td><?= $result[$key]['etage'] ?></td>
@@ -89,40 +91,27 @@ if(!$_SESSION['users']){
         </table>
     </div>
             <!--p class="toast" id="toast">L'entrée a bien été supprimée</p-->
-    
     <nav>
         <ul class="pagination">
-            <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-            <?php if ($currentPage  >1) : ?> 
-                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="./dashboard.php?page=<?= $currentPage - 1 ?>" class="page-link">Précédent</a>
-            </li>
-            <?php else : ?>
-                <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                <a href="./dashboard.php?page=<?= $currentPage?>" class="page-link">Précédent</a>
-            </li>
+<!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+            <?php if ($currentPage  > 1) : ?> 
+                <li><a href="./dashboard.php?page=<?= $currentPage - 1 ?>" class="page-item" >Précédent</a></li>
             <?php endif ?>
 
+<!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
             <?php for($page = 1;  $page <= $pages;  $page++): ?>
-            <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                    <a href="./dashboard.php?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                <li <?= ($currentPage == $page) ? "active" : "" ?>>
+                    <a href="./dashboard.php?page=<?= $page ?>/" class="page-nombre" ><?= $page ?></a>
                 </li>
             <?php endfor ?>
 
-            <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-            <?php
-            if ($currentPage <= $pages -1) : ?>
-            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                <a href="./dashboard.php?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-            </li>
-            <?php else : ?>
-                <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                <a href="./dashboard.php?page=<?= $currentPage ?>" class="page-link">Suivante</a>
-            </li>
+<!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+            <?php if ($currentPage < $pages) : ?> 
+                <li><a href="./dashboard.php?page=<?= $currentPage + 1 ?>"  class="page-item">Suivant</a></li>
             <?php endif ?>
         </ul>
     </nav>
+
     <!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
