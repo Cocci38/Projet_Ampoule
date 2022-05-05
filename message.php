@@ -42,15 +42,20 @@
 
     $sql->execute();
     $result=$conn->lastInsertId();
-    echo "C'est ok";
+    // echo "C'est ok";
 
-    echo $result;
+    // echo $result;
 
     $sth = $conn->prepare("UPDATE ampoule SET user_id=:user_id, message_id= :message_id WHERE Id=$id");
     $sth->bindParam(':user_id',$_SESSION['user_id'], PDO::PARAM_INT);
     $sth->bindParam(':message_id',$result, PDO::PARAM_INT);
     $sth->execute();
+
+    header('location: dashboard.php');
+    }else{
+        echo 'Mot de passe différent';
     }
+
     ?>
 </body>
 </html>

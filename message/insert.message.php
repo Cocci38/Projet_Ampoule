@@ -11,9 +11,9 @@ require_once '../crud/connexion.php';
     $sql->bindParam('message', $_POST['message']);
     $sql->execute();
     $result=$conn->lastInsertId();
-    echo "C'est ok";
+    // echo "C'est ok";
 
-    echo $result;
+    // echo $result;
 
     $sth = $conn->prepare("UPDATE ampoule SET message_id= :message_id WHERE Id=$id");
 
