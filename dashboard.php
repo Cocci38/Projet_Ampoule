@@ -38,7 +38,7 @@ if(!$_SESSION['users']){
                     <th>Etages</th>
                     <th>Position</th>
                     <th>Prix</th>
-                    <th>Id</th>
+                    <th>Message</th>
                 </tr>
             </thead>
             <?php  foreach ($result as $key => $value) { ?>
@@ -57,7 +57,7 @@ if(!$_SESSION['users']){
                     <?php } ?>
                     
                     <td><?= $result[$key]['prix'] ?> €</td>
-                    <td><?= $result[$key]['id'] ?></td>
+                    <td><?= $result[$key]['message'] ?></td>
                     <td class="validation">
                         
                         <a href="message.php?id=<?= $result[$key]['id'] ?>"><button type="submit">Message</button></a>

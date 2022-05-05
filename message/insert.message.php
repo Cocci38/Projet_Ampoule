@@ -15,7 +15,7 @@ require_once '../crud/connexion.php';
 
     echo $result;
 
-    $sth = $conn->prepare("UPDATE historique SET message_id= :message_id WHERE Id=$id");
+    $sth = $conn->prepare("UPDATE ampoule SET message_id= :message_id WHERE Id=$id");
 
     $sth->bindParam(':message_id',$result);
     $sth->execute();

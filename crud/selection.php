@@ -23,12 +23,17 @@ $pages = ceil($nbampoule / $parPage);
 // On calcul le 1er élément de la page
 $premier = ($currentPage * $parPage) - $parPage;
 // Faire la requête sql en utilisant l'instruction LIMIT
-$select = $conn->prepare("SELECT * FROM ampoule ORDER BY created_at DESC LIMIT :premier, :parpage;");
+$select = $conn->prepare("SELECT * FROM ampoule 
+LEFT JOIN messages ON ampoule.message_id=messages.id_message 
+-- WHERE ampoule.id=:id 
+ORDER BY created_at DESC LIMIT :premier, :parpage;");
+
 $select->bindValue(':premier', $premier, PDO::PARAM_INT);
 $select->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+//$select->bindValue(':id', $result2['id'], PDO::PARAM_INT);
 $select->execute();
 $result =$select->fetchAll(PDO::FETCH_ASSOC);
-
+//echo "<pre>",print_r($result),"</pre>";die();
 //print_r($result);
 
 
