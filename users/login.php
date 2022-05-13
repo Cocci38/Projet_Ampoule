@@ -12,7 +12,7 @@ if(isset($_POST['email']) && isset($_POST['password']))
 
     if($email !== "" && $password !==""){
         $requete = $conn->prepare("SELECT * FROM users WHERE email=:email");
-        $requete->bindParam(':email', $email);
+        $requete->bindParam(':email', $email, PDO::PARAM_STR);
         $requete->execute();
         $resultat = $requete->fetch(PDO::FETCH_ASSOC);
         $row = $requete->rowCount();
