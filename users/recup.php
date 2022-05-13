@@ -4,9 +4,9 @@ require_once '../crud/connexion.php';
 
 if(isset($_POST['email']) && isset($_POST['password'])){
 
-    $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
-    $password_bis = htmlspecialchars($_POST['password2']);
+    $email = htmlspecialchars(strip_tags($_POST['email']));
+    $password = htmlspecialchars(strip_tags($_POST['password']));
+    $password_bis = htmlspecialchars(strip_tags($_POST['password2']));
 
     if ($password == $password_bis) {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);

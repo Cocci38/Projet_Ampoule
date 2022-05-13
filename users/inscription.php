@@ -2,11 +2,11 @@
 
 require_once '../crud/connexion.php';
 
-$username = htmlspecialchars($_POST['username']);
-$email = htmlspecialchars($_POST['email']);
-$portable = htmlspecialchars($_POST['portable']);
-$password = htmlspecialchars($_POST['password']);
-$password_bis = htmlspecialchars($_POST['password2']);
+$username = htmlspecialchars(strip_tags($_POST['username']));
+$email = htmlspecialchars(strip_tags($_POST['email']));
+$portable = htmlspecialchars(strip_tags($_POST['portable']));
+$password = htmlspecialchars(strip_tags($_POST['password']));
+$password_bis = htmlspecialchars(strip_tags($_POST['password2']));
 // if(password_verify($pass, $password)){
 //     echo 'valide';
 // }else{
@@ -23,7 +23,7 @@ $sql = $conn->prepare("INSERT INTO users (
     $sql->bindParam(':portable', $portable, PDO::PARAM_STR);
     $sql->bindParam(':password', $passwordHash, PDO::PARAM_STR);
     $sql->execute();
-    echo "C'est ok";
+    //echo "C'est ok";
 
     header('location: ../dashboard.php');
 }else{

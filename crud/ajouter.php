@@ -13,11 +13,12 @@ require_once 'connexion.php';
     $id_user = intval($resultat['id_user']);
     //var_dump($id_user);die();
 
-    $created_at = htmlspecialchars($_POST['created_at']);
-    $etage = htmlspecialchars($_POST['etage']);
-    $position = htmlspecialchars($_POST['position']);
-    $prix = htmlspecialchars($_POST['prix']);
-    
+    $created_at = htmlspecialchars(strip_tags($_POST['created_at']));
+    $etage = htmlspecialchars(strip_tags($_POST['etage']));
+    $position = htmlspecialchars(strip_tags($_POST['position']));
+    $prix = htmlspecialchars(strip_tags($_POST['prix']));
+    //var_dump($position);die();
+
     $sql = $conn->prepare("INSERT INTO ampoule (
         created_at, etage, position, prix, user_id)
         VALUES(:created_at, :etage, :position, :prix, :user_id)");

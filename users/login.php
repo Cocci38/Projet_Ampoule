@@ -7,8 +7,8 @@ require_once '../crud/connexion.php';
 if(isset($_POST['email']) && isset($_POST['password']))
 {
     // Pour éliminer les risques d'injection
-    $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
+    $email = htmlspecialchars(strip_tags($_POST['email']));
+    $password = htmlspecialchars(strip_tags($_POST['password']));
 
     if($email !== "" && $password !==""){
         $requete = $conn->prepare("SELECT * FROM users WHERE email=:email");

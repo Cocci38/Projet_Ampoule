@@ -4,7 +4,7 @@ require_once '../crud/connexion.php';
 
     $id= $_GET['id'];
 
-    $message = htmlspecialchars($_POST['message']);
+    $message = htmlspecialchars(strip_tags($_POST['message']));
 
     $sql = $conn->prepare("INSERT INTO messages (
         user_id, message)
