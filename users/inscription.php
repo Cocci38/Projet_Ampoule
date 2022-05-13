@@ -18,10 +18,10 @@ if ($password == $password_bis) {
 $sql = $conn->prepare("INSERT INTO users (
     username, email, portable, password)
     VALUES (:username, :email, :portable, :password)");
-    $sql->bindParam(':username', $_POST['username']);
-    $sql->bindParam(':email', $_POST['email']);
-    $sql->bindParam(':portable', $_POST['portable']);
-    $sql->bindParam(':password', $passwordHash);
+    $sql->bindParam(':username', $username, PDO::PARAM_STR);
+    $sql->bindParam(':email', $email, PDO::PARAM_STR);
+    $sql->bindParam(':portable', $portable, PDO::PARAM_STR);
+    $sql->bindParam(':password', $passwordHash, PDO::PARAM_STR);
     $sql->execute();
     echo "C'est ok";
 

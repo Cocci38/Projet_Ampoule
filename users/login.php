@@ -24,13 +24,13 @@ if(isset($_POST['email']) && isset($_POST['password']))
                 if($resultat){
                     $passwordHash = $resultat['password'];
                     if(password_verify($password, $passwordHash)){             
-                        echo 'valide';
+                        //echo 'valide';
                         $_SESSION['users'] = $resultat['username'];
                         $_SESSION['user_id'] = $resultat['id_user'];
                         header('location: ../dashboard.php');
                     }else{
                     header('location: ../login.utilisateur.php?login_err=password');
-                    echo 'invalide';
+                    //echo 'invalide';
                     }
                 }
                 }else {

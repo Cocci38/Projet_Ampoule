@@ -7,6 +7,6 @@ $delete = $conn->prepare("DELETE  FROM ampoule WHERE id=$id");
 $delete->execute();
 $supp = $delete->fetchAll();
 
-$_SESSION['supprimer'] == TRUE;
+//$_SESSION['supprimer'] == TRUE;
 header('location: ../dashboard.php');
 ?>
