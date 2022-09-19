@@ -36,24 +36,17 @@ if (!$_SESSION['users']) {
                 <label for="prix">Prix</label>
                 <input type="number" name="prix" id="" step="any">
                 <select name="etage" id="etage">
-                    <option value="rdc">RDC</option>
                     <?php
-                    for ($i = 1; $i <= NOMBREETAGE; $i++) {
-                        echo "<option value=$i>étage $i </option>";
+                    for ($i = 0; $i <= NOMBREETAGE; $i++) {
+                        if ($i == 0) { ?>
+                            <option value=rdc>RDC</option>
+                        <?php } elseif ($i == 1) { ?>
+                            <option value="<?= $i ?>er"> <?= $i ?>er </option>
+                        <?php } else { ?>
+                            <option value="<?= $i ?>ème"> <?= $i ?>ème </option>
+                    <?php }
                     }
                     ?>
-                    <!-- <option value="rdc">RDC</option>
-            <option value="1er">1er étage</option>
-            <option value="2ème">2ème étage</option>
-            <option value="3ème">3ème étage</option>
-            <option value="4ème">4ème étage</option>
-            <option value="5ème">5ème étage</option>
-            <option value="6ème">6ème étage</option>
-            <option value="7ème">7ème étage</option>
-            <option value="8ème">8ème étage</option>
-            <option value="9ème">9ème étage</option>
-            <option value="10ème">10ème étage</option>
-            <option value="11ème">11ème étage</option> -->
                 </select>
 
                 <input type="radio" name="position" id="gauche" value="gauche">
